@@ -37,9 +37,11 @@ ANTHROPIC_API_KEY = _secret("ANTHROPIC_API_KEY")
 OPENAI_API_KEY    = _secret("OPENAI_API_KEY")
 GITHUB_TOKEN      = _secret("GITHUB_TOKEN", "")
 
+import tempfile
+_TMP          = tempfile.gettempdir()
 DATA_DIR      = "./data"
-CHROMA_PATH   = "./chroma_db"
-BM25_PATH     = "./bm25_index.pkl"
+CHROMA_PATH   = os.path.join(_TMP, "chroma_db")
+BM25_PATH     = os.path.join(_TMP, "bm25_index.pkl")
 EMBED_MODEL   = "all-MiniLM-L6-v2"
 RERANK_MODEL  = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 CHUNK_SIZE    = 512
@@ -295,9 +297,8 @@ with st.sidebar:
     if st.button("🗑️ Clear chat"):
         st.session_state.messages = []
         st.rerun()
-    if st.button("🔄 Re-ingest repo"):
-        for key in ("rag_collection", "bm25_data", "embed_model", "reranker"):
-            st.cache_resource.clear()
+    if st.button("🔄 Re-ingest data"):
+        st.cache_resource.clear()
         if Path(BM25_PATH).exists():
             Path(BM25_PATH).unlink()
         st.rerun()
@@ -307,8 +308,12 @@ index_ready = Path(BM25_PATH).exists() and Path(CHROMA_PATH).exists()
 if not index_ready:
     st.title("💻 Sajid IT Assistant")
     status = st.empty()
-    status.info("🚀 First run — ingesting the repository. This takes ~1 min …")
-    run_ingestion(status)
+    status.info("⏳ Loading IT knowledge base for the first time …")
+    try:
+        run_ingestion(status)
+    except Exception as e:
+        st.error(f"Ingestion failed: {e}")
+        st.stop()
     st.rerun()
 
 # ── Chat UI ───────────────────────────────────────────────────────────────────
@@ -328,7 +333,14 @@ if prompt := st.chat_input("Ask any IT question …"):
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        candidates = hybrid_search(prompt)
+        try:
+            candidates = hybrid_search(prompt)
+        except Exception as e:
+            full = f"❌ Search error: {e}. Try clicking **Re-ingest data** in the sidebar."
+            st.markdown(full)
+            st.session_state.messages.append({"role": "assistant", "content": full})
+            st.stop()
+
         if not candidates:
             full = "I don't have enough specific info to answer that question."
             st.markdown(full)
@@ -339,8 +351,8 @@ if prompt := st.chat_input("Ask any IT question …"):
             )
             if not agentic_router(prompt, context):
                 full = (
-                    "I don't have enough specific info in the indexed repository "
-                    "to answer accurately. Try rephrasing or check the source directly."
+                    "I don't have enough specific info in the IT knowledge base "
+                    "to answer accurately. Try rephrasing your question."
                 )
                 st.markdown(full)
             else:
