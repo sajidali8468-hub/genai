@@ -297,12 +297,12 @@ def answer_stream(query: str, context: str):
 
 
 # ── Page layout ───────────────────────────────────────────────────────────────
-st.set_page_config(page_title="LLM Repo Chatbot", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="Sajid Mock Project", page_icon="🤖", layout="wide")
 
 with st.sidebar:
     st.title("⚙️ Settings")
     st.markdown(
-        f"**Repo:** [{GITHUB_REPO}](https://github.com/{GITHUB_REPO})  \n"
+        f"**Repo:** Sajid Mock Project  \n"
         f"**LLM:** `{LLM_MODEL}`  \n"
         f"**Embeddings:** `{EMBED_MODEL}`"
     )
@@ -328,14 +328,14 @@ with st.sidebar:
 # ── Auto-ingest on first run ───────────────────────────────────────────────────
 index_ready = Path(BM25_PATH).exists() and Path(CHROMA_PATH).exists()
 if not index_ready:
-    st.title("🤖 LLM Repository RAG Chatbot")
+    st.title("🤖 Sajid Mock Project")
     status = st.empty()
     status.info("🚀 First run — ingesting the repository. This takes ~1 min …")
     run_ingestion(status)
     st.rerun()
 
 # ── Chat UI ───────────────────────────────────────────────────────────────────
-st.title("🤖 LLM Repository RAG Chatbot")
+st.title("🤖 Sajid Mock Project")
 st.caption(f"Powered by Hybrid Search + CrossEncoder + Agentic Router | "
            f"Source: [github.com/{GITHUB_REPO}](https://github.com/{GITHUB_REPO})")
 
