@@ -37,7 +37,7 @@ ANTHROPIC_API_KEY = _secret("ANTHROPIC_API_KEY")
 OPENAI_API_KEY    = _secret("OPENAI_API_KEY")
 GITHUB_TOKEN      = _secret("GITHUB_TOKEN", "")
 
-GITHUB_REPO   = "priyanka-963/llm"
+GITHUB_REPO   = "sajid-llm"
 CHROMA_PATH   = "./chroma_db"
 BM25_PATH     = "./bm25_index.pkl"
 EMBED_MODEL   = "all-MiniLM-L6-v2"

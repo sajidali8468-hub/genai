@@ -52,7 +52,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 st.title("🤖 LLM Repository RAG Chatbot")
-st.caption("Ask anything about the [priyanka-963/llm](https://github.com/priyanka-963/llm) repo.")
+st.caption("Ask anything about the sajid-llm repo.")
 
 # ── Render history ─────────────────────────────────────────────────────────────
 for msg in st.session_state.messages:

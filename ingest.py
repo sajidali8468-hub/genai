@@ -24,7 +24,7 @@ import chromadb
 load_dotenv()
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-GITHUB_REPO   = "priyanka-963/llm"
+GITHUB_REPO   = "sajid-llm"
 GITHUB_TOKEN  = os.getenv("GITHUB_TOKEN", "")
 CHROMA_PATH   = "./chroma_db"
 BM25_PATH     = "./bm25_index.pkl"
