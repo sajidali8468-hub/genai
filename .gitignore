@@ -1,0 +1,13 @@
+# Secrets — never commit
+.env
+
+# Generated index files (large, re-created by ingest.py)
+chroma_db/
+bm25_index.pkl
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
