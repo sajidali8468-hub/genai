@@ -5,8 +5,8 @@ No separate FastAPI server needed. All RAG logic is embedded here.
 Ingestion runs automatically on first startup.
 
 Set API keys in Streamlit Cloud → App settings → Secrets:
-  ANTHROPIC_API_KEY = "sk-ant-..."
-  GITHUB_TOKEN      = "ghp_..."   # optional, avoids rate-limits
+  GROQ_API_KEY  = "gsk_..."       # free at console.groq.com (recommended)
+  GITHUB_TOKEN  = "ghp_..."       # optional, avoids rate-limits
 """
 
 from __future__ import annotations
@@ -32,6 +32,7 @@ def _secret(key: str, default: str = "") -> str:
     except Exception:
         return os.getenv(key, default)
 
+GROQ_API_KEY      = _secret("GROQ_API_KEY")
 ANTHROPIC_API_KEY = _secret("ANTHROPIC_API_KEY")
 OPENAI_API_KEY    = _secret("OPENAI_API_KEY")
 GITHUB_TOKEN      = _secret("GITHUB_TOKEN", "")
@@ -50,7 +51,14 @@ ALLOWED_EXT   = {".py", ".md", ".txt", ".rst", ".ipynb", ".json", ".yaml", ".yml
 
 
 # ── LLM provider ─────────────────────────────────────────────────────────────
-if ANTHROPIC_API_KEY:
+if GROQ_API_KEY:
+    from openai import OpenAI as _OAI
+    _llm         = _OAI(api_key=GROQ_API_KEY,
+                        base_url="https://api.groq.com/openai/v1")
+    LLM_PROVIDER = "openai"          # Groq is OpenAI-compatible
+    LLM_MODEL    = "llama-3.3-70b-versatile"   # best free model on Groq
+    FAST_MODEL   = "llama-3.1-8b-instant"      # fast cheap routing model
+elif ANTHROPIC_API_KEY:
     import anthropic as _ant
     _llm         = _ant.Anthropic(api_key=ANTHROPIC_API_KEY)
     LLM_PROVIDER = "anthropic"
@@ -64,8 +72,8 @@ elif OPENAI_API_KEY:
     FAST_MODEL   = "gpt-4o-mini"
 else:
     st.error(
-        "No API key found. Add **ANTHROPIC_API_KEY** or **OPENAI_API_KEY** "
-        "in Streamlit Cloud → Settings → Secrets."
+        "No API key found. Add **GROQ_API_KEY** in Streamlit Cloud → Settings → Secrets.  \n"
+        "Get a free key at https://console.groq.com"
     )
     st.stop()
 
