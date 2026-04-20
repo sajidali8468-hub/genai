@@ -1,0 +1,74 @@
+CLOUD COMPUTING & SOFTWARE
+===========================
+
+What is Cloud Computing?
+Cloud computing delivers computing services (servers, storage, databases, networking, software) over the internet instead of on local hardware.
+
+Types of Cloud Services:
+- IaaS (Infrastructure as a Service): Rent virtual servers and storage. Example: AWS EC2, Azure VMs.
+- PaaS (Platform as a Service): Platform to build and deploy apps. Example: Google App Engine, Heroku.
+- SaaS (Software as a Service): Use software over the internet. Example: Gmail, Microsoft 365, Zoom.
+
+Popular Cloud Providers:
+- AWS (Amazon Web Services): Largest cloud provider. Most services and global reach.
+- Microsoft Azure: Popular in enterprise. Integrates well with Windows and Office 365.
+- Google Cloud Platform (GCP): Strong in data analytics and machine learning.
+
+Cloud Storage:
+- Google Drive: 15GB free storage. Integrates with Google Docs, Sheets, Slides.
+- OneDrive: Microsoft's cloud storage. Integrates with Windows and Office.
+- Dropbox: Popular for file sharing and collaboration.
+- iCloud: Apple's cloud storage for Mac, iPhone, iPad.
+
+Benefits of Cloud:
+- Access files from anywhere on any device.
+- No need to maintain physical servers.
+- Automatic backups.
+- Pay only for what you use.
+- Easy to scale up or down.
+
+Virtualization:
+Virtualization creates virtual versions of hardware. A single physical server can run multiple virtual machines (VMs).
+- VMware and VirtualBox are popular virtualization tools.
+- Used extensively in data centers and cloud computing.
+
+Common Software Issues:
+- Software won't install: Check system requirements. Run as administrator. Disable antivirus temporarily.
+- Software crashes: Update to latest version. Reinstall. Check for conflicting software.
+- Slow software: Close background apps. Increase RAM. Check for malware.
+- License expired: Purchase renewal or find open-source alternative.
+
+Microsoft Office Tips:
+- Word: Ctrl+B (Bold), Ctrl+I (Italic), Ctrl+S (Save), Ctrl+P (Print)
+- Excel: Ctrl+Home (go to beginning), F2 (edit cell), Ctrl+Arrow (jump to end of data)
+- PowerPoint: F5 (start presentation), Esc (end presentation)
+- Outlook: Ctrl+N (new email), Ctrl+R (reply), Ctrl+Shift+A (new appointment)
+
+Remote Desktop:
+- RDP (Remote Desktop Protocol): Windows built-in tool to access another Windows PC remotely.
+- TeamViewer: Easy remote access tool for support and collaboration.
+- AnyDesk: Fast and lightweight remote desktop software.
+- SSH: Secure command-line remote access for Linux/Mac servers.
+
+Printers and Peripherals:
+- Printer not printing: Check cable/Wi-Fi connection. Clear print queue. Reinstall driver.
+- Update drivers from manufacturer website for best compatibility.
+- Use Device Manager (Windows) to troubleshoot hardware issues.
+
+Software Licenses:
+- Proprietary: Paid software with restrictions (e.g., Microsoft Windows, Adobe Photoshop).
+- Open Source: Free to use and modify (e.g., LibreOffice, VLC, Ubuntu).
+- Freeware: Free but not open source (e.g., 7-Zip, Audacity).
+- Subscription: Pay monthly/yearly (e.g., Microsoft 365, Adobe Creative Cloud).
+
+IT Helpdesk Common Issues and Solutions:
+1. Forgot password → Use password reset option or contact IT admin.
+2. Email not working → Check internet, check account settings, restart email client.
+3. Printer offline → Restart printer, check connection, set as default printer.
+4. Computer running slow → Restart, close unused apps, check for malware, free up disk space.
+5. No internet → Restart router, check cables, run network troubleshooter.
+6. Can't open file → Check if correct software is installed, check file permissions.
+7. Screen flickering → Update display drivers, check monitor cable.
+8. Keyboard not working → Unplug and replug, try different USB port, check driver.
+9. Computer overheating → Clean dust, check fan, ensure proper ventilation.
+10. Data lost → Check Recycle Bin, use file recovery software (Recuva), restore from backup.

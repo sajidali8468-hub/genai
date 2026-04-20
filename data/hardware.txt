@@ -1,0 +1,54 @@
+HARDWARE & COMPUTER COMPONENTS
+================================
+
+CPU (Central Processing Unit):
+The CPU is the brain of the computer. It processes instructions and runs programs.
+- Common brands: Intel (Core i3, i5, i7, i9) and AMD (Ryzen 3, 5, 7, 9)
+- Clock speed is measured in GHz. Higher GHz = faster processing.
+- Cores: More cores allow the CPU to handle more tasks simultaneously.
+
+RAM (Random Access Memory):
+RAM is temporary memory used to run programs. When you open an application, it loads into RAM.
+- More RAM = better multitasking.
+- Common sizes: 8GB, 16GB, 32GB
+- If RAM is full, the computer slows down significantly.
+- Upgrading RAM is one of the easiest ways to speed up a slow computer.
+
+Storage - HDD vs SSD:
+- HDD (Hard Disk Drive): Uses spinning magnetic disks. Slower but cheaper and higher capacity.
+- SSD (Solid State Drive): Uses flash memory. Much faster, more durable, uses less power.
+- NVMe SSD: Even faster than regular SSD. Connects directly to the motherboard.
+- Recommendation: Use SSD for the operating system and HDD for extra storage.
+
+GPU (Graphics Processing Unit):
+The GPU handles graphics rendering. Important for gaming, video editing, and 3D design.
+- Integrated GPU: Built into the CPU. Good for everyday tasks.
+- Dedicated GPU: Separate card. Required for gaming and heavy graphics work.
+- Common brands: NVIDIA (GeForce) and AMD (Radeon)
+
+Motherboard:
+The motherboard is the main circuit board that connects all components. It determines what CPU, RAM, and storage you can use.
+
+Power Supply Unit (PSU):
+The PSU converts AC power from the wall to DC power for computer components. Measured in watts. Always use a quality PSU to protect your components.
+
+Common Hardware Problems:
+- Computer won't turn on: Check power cable, power button, PSU.
+- Overheating: Clean dust from fans and vents. Replace thermal paste on CPU.
+- Blue Screen of Death (BSOD): Usually caused by faulty drivers, RAM, or storage issues.
+- Computer is slow: Check RAM usage, run disk cleanup, scan for malware.
+- No display: Check monitor cable, GPU seating, try different display port.
+- Loud fan noise: Dust buildup or failing fan bearing. Clean or replace fan.
+
+How to Check Hardware Health:
+- CPU temperature: Use HWMonitor or Core Temp. Should be below 80°C under load.
+- RAM test: Use Windows Memory Diagnostic or MemTest86.
+- HDD/SSD health: Use CrystalDiskInfo to check SMART status.
+- GPU temperature: Use MSI Afterburner. Should stay below 85°C under load.
+
+Upgrading a Computer:
+Easiest upgrades in order of impact:
+1. Add more RAM
+2. Replace HDD with SSD
+3. Add a dedicated GPU
+4. Replace CPU (requires compatible motherboard)

@@ -37,7 +37,7 @@ ANTHROPIC_API_KEY = _secret("ANTHROPIC_API_KEY")
 OPENAI_API_KEY    = _secret("OPENAI_API_KEY")
 GITHUB_TOKEN      = _secret("GITHUB_TOKEN", "")
 
-GITHUB_REPO   = "sajid-llm"
+DATA_DIR      = "./data"
 CHROMA_PATH   = "./chroma_db"
 BM25_PATH     = "./bm25_index.pkl"
 EMBED_MODEL   = "all-MiniLM-L6-v2"
@@ -47,7 +47,6 @@ CHUNK_OVERLAP = 50
 HYBRID_TOP_K  = 10
 RERANK_TOP_N  = 3
 RRF_K         = 60
-ALLOWED_EXT   = {".py", ".md", ".txt", ".rst", ".ipynb", ".json", ".yaml", ".yml"}
 
 
 # ── LLM provider ─────────────────────────────────────────────────────────────
@@ -78,34 +77,13 @@ else:
     st.stop()
 
 
-# ── GitHub scraper ─────────────────────────────────────────────────────────────
-def _gh_headers() -> dict:
-    return {"Authorization": f"Bearer {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}
-
-
-def fetch_repo_files(repo: str) -> list[dict]:
-    for branch in ("HEAD", "main", "master"):
-        url  = f"https://api.github.com/repos/{repo}/git/trees/{branch}?recursive=1"
-        resp = requests.get(url, headers=_gh_headers(), timeout=30)
-        if resp.status_code == 200:
-            break
-    else:
-        resp.raise_for_status()
-
+# ── Local data loader ─────────────────────────────────────────────────────────
+def load_local_files(data_dir: str) -> list[dict]:
     files = []
-    for item in resp.json().get("tree", []):
-        if item["type"] != "blob":
-            continue
-        if Path(item["path"]).suffix.lower() not in ALLOWED_EXT:
-            continue
-        raw = f"https://raw.githubusercontent.com/{repo}/HEAD/{item['path']}"
-        try:
-            r = requests.get(raw, headers=_gh_headers(), timeout=15)
-            if r.status_code == 200 and r.text.strip():
-                files.append({"path": item["path"], "content": r.text})
-            time.sleep(0.04)
-        except Exception:
-            pass
+    for path in Path(data_dir).glob("*.txt"):
+        text = path.read_text(encoding="utf-8").strip()
+        if text:
+            files.append({"path": path.name, "content": text})
     return files
 
 
@@ -117,17 +95,16 @@ def run_ingestion(status_container) -> None:
     from sentence_transformers import SentenceTransformer
     import chromadb
 
-    status_container.info("📥 Fetching files from GitHub …")
-    raw = fetch_repo_files(GITHUB_REPO)
+    status_container.info("📥 Loading IT knowledge base …")
+    raw = load_local_files(DATA_DIR)
     if not raw:
-        status_container.error("No files fetched — check GITHUB_TOKEN or repo name.")
+        status_container.error("No data files found in ./data folder.")
         st.stop()
 
     docs = [
         Document(
             page_content=f["content"],
-            metadata={"path": f["path"],
-                      "source": f"https://github.com/{GITHUB_REPO}/blob/HEAD/{f['path']}"},
+            metadata={"path": f["path"], "source": f["path"]},
         )
         for f in raw
     ]
@@ -297,12 +274,12 @@ def answer_stream(query: str, context: str):
 
 
 # ── Page layout ───────────────────────────────────────────────────────────────
-st.set_page_config(page_title="Sajid Mock Project", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="Sajid IT Assistant", page_icon="💻", layout="wide")
 
 with st.sidebar:
     st.title("⚙️ Settings")
     st.markdown(
-        f"**Repo:** Sajid Mock Project  \n"
+        f"**Knowledge Base:** IT Assistant  \n"
         f"**LLM:** `{LLM_MODEL}`  \n"
         f"**Embeddings:** `{EMBED_MODEL}`"
     )
@@ -328,16 +305,15 @@ with st.sidebar:
 # ── Auto-ingest on first run ───────────────────────────────────────────────────
 index_ready = Path(BM25_PATH).exists() and Path(CHROMA_PATH).exists()
 if not index_ready:
-    st.title("🤖 Sajid Mock Project")
+    st.title("💻 Sajid IT Assistant")
     status = st.empty()
     status.info("🚀 First run — ingesting the repository. This takes ~1 min …")
     run_ingestion(status)
     st.rerun()
 
 # ── Chat UI ───────────────────────────────────────────────────────────────────
-st.title("🤖 Sajid Mock Project")
-st.caption(f"Powered by Hybrid Search + CrossEncoder + Agentic Router | "
-           f"Source: [github.com/{GITHUB_REPO}](https://github.com/{GITHUB_REPO})")
+st.title("💻 Sajid IT Assistant")
+st.caption("Powered by Hybrid Search + CrossEncoder + Agentic Router | Topics: Networking, Hardware, OS, Cybersecurity, Cloud")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -346,7 +322,7 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-if prompt := st.chat_input("Ask about the LLM repository …"):
+if prompt := st.chat_input("Ask any IT question …"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)

@@ -1,0 +1,77 @@
+CYBERSECURITY
+==============
+
+What is Cybersecurity?
+Cybersecurity is the practice of protecting computers, networks, and data from digital attacks, theft, and damage.
+
+Common Cyber Threats:
+- Malware: Software designed to damage or gain unauthorized access. Includes viruses, worms, trojans.
+- Ransomware: Encrypts your files and demands payment to unlock them.
+- Phishing: Fake emails or websites that trick you into giving personal information or passwords.
+- Spyware: Software that secretly monitors your activity.
+- DDoS Attack: Overwhelms a server with traffic to make it unavailable.
+- Man-in-the-Middle Attack: Attacker intercepts communication between two parties.
+- SQL Injection: Attacker inserts malicious code into a database query.
+- Brute Force Attack: Tries thousands of password combinations to gain access.
+
+Passwords Best Practices:
+- Use at least 12 characters.
+- Mix uppercase, lowercase, numbers, and symbols.
+- Never reuse passwords across sites.
+- Use a password manager (e.g., Bitwarden, LastPass, 1Password).
+- Enable two-factor authentication (2FA) everywhere possible.
+- Never share passwords via email or chat.
+
+Two-Factor Authentication (2FA):
+2FA adds an extra layer of security. Even if someone has your password, they also need a second factor (phone code, app, hardware key) to log in.
+
+Antivirus and Antimalware:
+- Keep antivirus software updated.
+- Run regular scans.
+- Popular options: Windows Defender (built-in), Malwarebytes, Bitdefender.
+
+Safe Browsing:
+- Always check for HTTPS (padlock icon) before entering sensitive info.
+- Avoid clicking unknown links in emails.
+- Do not download software from unofficial websites.
+- Use a browser with built-in protection (Chrome, Firefox, Edge).
+- Use an ad blocker to reduce malicious ad risks.
+
+How to Spot a Phishing Email:
+- Sender email address looks suspicious or misspelled.
+- Urgent language: "Your account will be closed!"
+- Asks for passwords, credit card numbers, or personal info.
+- Links go to unusual URLs (hover over link to check).
+- Poor grammar and spelling.
+
+Data Encryption:
+- Encryption converts data into unreadable format. Only authorized parties can decrypt it.
+- HTTPS encrypts web traffic.
+- Use BitLocker (Windows) or FileVault (Mac) to encrypt your hard drive.
+- Encrypt sensitive files before sending them.
+
+Firewall and Network Security:
+- Always keep your firewall enabled.
+- Use WPA3 or WPA2 encryption on your Wi-Fi network.
+- Change default router username and password.
+- Disable WPS (Wi-Fi Protected Setup) as it has vulnerabilities.
+- Use a guest network for visitors and IoT devices.
+
+Software Updates:
+- Always install security updates promptly.
+- Unpatched software is one of the most common ways attackers get in.
+- Enable automatic updates for OS and applications.
+
+Backup Strategy (3-2-1 Rule):
+- 3 copies of your data
+- 2 different storage types (e.g., external drive and cloud)
+- 1 copy offsite (cloud or different location)
+
+Incident Response - What to do if hacked:
+1. Disconnect from the internet immediately.
+2. Change all passwords from a different device.
+3. Enable 2FA on all accounts.
+4. Run a full antivirus scan.
+5. Check for unauthorized account activity.
+6. Report to your IT department or relevant authorities.
+7. Restore from a clean backup if needed.

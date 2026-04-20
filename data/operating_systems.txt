@@ -1,0 +1,78 @@
+OPERATING SYSTEMS
+==================
+
+What is an Operating System?
+An operating system (OS) is software that manages computer hardware and provides services for programs. Common OS: Windows, macOS, Linux.
+
+Windows:
+- Most popular OS for personal computers and businesses.
+- Latest version: Windows 11
+- Good for gaming, office work, and general use.
+- Common Windows shortcuts:
+  - Ctrl+C: Copy
+  - Ctrl+V: Paste
+  - Ctrl+Z: Undo
+  - Win+D: Show desktop
+  - Ctrl+Alt+Delete: Open Task Manager / security options
+  - Win+L: Lock computer
+  - Alt+F4: Close application
+
+Windows Troubleshooting:
+- Slow computer: Open Task Manager (Ctrl+Shift+Esc), check CPU and RAM usage. End heavy processes.
+- Disk full: Run Disk Cleanup. Uninstall unused programs. Move files to external drive.
+- Windows Update issues: Run Windows Update Troubleshooter. Reset Windows Update components.
+- App crashes: Update the app. Reinstall it. Check Windows Event Viewer for errors.
+- Black screen on startup: Boot into Safe Mode. Update or rollback display drivers.
+
+Linux:
+- Free and open-source operating system.
+- Popular distributions (distros): Ubuntu, Debian, Fedora, CentOS, Kali Linux.
+- Widely used on servers, cloud, and development environments.
+- More secure and stable than Windows for servers.
+- Common Linux commands:
+  - ls: List files
+  - cd: Change directory
+  - pwd: Print working directory
+  - mkdir: Create folder
+  - rm: Delete file
+  - cp: Copy file
+  - mv: Move/rename file
+  - sudo: Run as administrator
+  - apt install: Install software (Ubuntu/Debian)
+  - ps aux: List running processes
+  - kill: Stop a process
+  - grep: Search text in files
+  - chmod: Change file permissions
+
+macOS:
+- Apple's operating system for Mac computers.
+- Known for stability and design.
+- Based on Unix, similar to Linux.
+- Good for creative professionals (video, music, design).
+
+File Systems:
+- NTFS: Windows file system. Supports large files and permissions.
+- FAT32: Older format. Compatible with all OS but limited to 4GB file size.
+- exFAT: For USB drives. Works on Windows and Mac. Supports large files.
+- ext4: Standard Linux file system.
+- APFS: Apple file system for macOS and iOS.
+
+Processes and Task Management:
+- Windows: Task Manager (Ctrl+Shift+Esc)
+- Linux: top, htop commands
+- A process using 100% CPU will slow everything down. Identify and close it.
+
+User Accounts and Permissions:
+- Administrator: Full access to the system.
+- Standard User: Limited access. Cannot install software or change system settings.
+- Always use a standard account for daily use. Use admin only when needed for security.
+
+Startup Programs:
+- Too many startup programs slow boot time.
+- Windows: Task Manager → Startup tab → Disable unnecessary programs.
+- Linux: Use systemctl to manage services.
+
+System Restore / Backup:
+- Windows: Use System Restore to roll back to a previous working state.
+- Always back up important data to an external drive or cloud storage.
+- Windows Backup: Settings → Update & Security → Backup.

@@ -1,0 +1,57 @@
+NETWORKING FUNDAMENTALS
+========================
+
+What is a Network?
+A computer network is a group of computers and devices connected together to share resources and communicate. Networks can be wired (Ethernet) or wireless (Wi-Fi).
+
+Types of Networks:
+- LAN (Local Area Network): Connects devices in a small area like a home or office.
+- WAN (Wide Area Network): Covers large geographic areas. The internet is the largest WAN.
+- MAN (Metropolitan Area Network): Covers a city or campus.
+- WLAN (Wireless LAN): A LAN that uses Wi-Fi instead of cables.
+
+IP Address:
+An IP address is a unique number assigned to every device on a network. Example: 192.168.1.1
+- IPv4: Uses 32-bit addresses (e.g., 192.168.0.1)
+- IPv6: Uses 128-bit addresses (e.g., 2001:0db8:85a3::8a2e:0370:7334)
+
+DNS (Domain Name System):
+DNS translates human-readable domain names (like google.com) into IP addresses. It works like a phone book for the internet.
+
+DHCP (Dynamic Host Configuration Protocol):
+DHCP automatically assigns IP addresses to devices on a network. When you connect to Wi-Fi, DHCP gives your device an IP address automatically.
+
+Router vs Switch vs Hub:
+- Router: Connects different networks together (e.g., your home network to the internet).
+- Switch: Connects multiple devices within the same network.
+- Hub: Older device that broadcasts data to all devices (inefficient, rarely used now).
+
+Common Ports:
+- Port 80: HTTP (web traffic)
+- Port 443: HTTPS (secure web traffic)
+- Port 22: SSH (secure remote access)
+- Port 21: FTP (file transfer)
+- Port 25: SMTP (email sending)
+- Port 3389: RDP (Remote Desktop Protocol)
+
+Firewall:
+A firewall monitors and controls incoming and outgoing network traffic based on security rules. It acts as a barrier between trusted and untrusted networks.
+
+VPN (Virtual Private Network):
+A VPN encrypts your internet connection and hides your IP address. It creates a secure tunnel between your device and the internet. Used for privacy and accessing remote networks securely.
+
+Troubleshooting Network Issues:
+1. Check if the cable is plugged in or Wi-Fi is enabled.
+2. Restart the router and modem.
+3. Run "ipconfig" (Windows) or "ifconfig" (Linux/Mac) to check IP address.
+4. Use "ping google.com" to test internet connectivity.
+5. Use "tracert google.com" (Windows) or "traceroute google.com" (Linux) to trace the network path.
+6. Check DNS settings if websites don't load.
+7. Flush DNS cache: run "ipconfig /flushdns" on Windows.
+
+Network Speed Issues:
+- Check for too many devices on the network.
+- Move closer to the Wi-Fi router.
+- Use 5GHz band instead of 2.4GHz for faster speeds.
+- Check if someone is downloading large files.
+- Contact ISP if speed is consistently slow.
